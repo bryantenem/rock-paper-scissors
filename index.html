@@ -11,12 +11,15 @@
     <div class = container>
         <div class = myScore>
             <h1>Your Score: </h1>
-            <p class = 'me'></p>
+            <p class = 'me'>0</p>
         </div>
         <div class = pcScore>
             <h1>Computer Score: </h1>
-            <p class="pc"></p>
+            <p class="pc">0</p>
         </div>
+    </div>
+    <div class = winner>
+        <h1 class="win">Who Will Win?</h1>
     </div>
 
 </body>
@@ -26,11 +29,15 @@
 
     let myScore = document.querySelector(".me");
     let pcScore = document.querySelector(".pc");
+    let winner = document.querySelector(".win");
+    let pc_score = 0;
+    let me_score = 0;
 
 
     function playerPlay(){
         let playerSelection = prompt("Enter your choice: ", "");
         playerSelection = playerSelection.toLowerCase();
+        return playerSelection;
     }
 
     function computerPlay(){
@@ -40,7 +47,6 @@
     }
 
     function playRound(userChoice, computerChoice){
-        console.log(computerChoice);
         if (userChoice === computerChoice){
             alert('Its a tie!');
         }
@@ -48,24 +54,34 @@
                 userChoice === 'paper' && computerChoice === 'scissor' ||
                 userChoice === 'scissor' && computerChoice === 'rock'){
                     alert(`Computer Wins! ${computerChoice} beats ${userChoice}`)
+                    pc_score++
+                    pcScore.textContent = pc_score;
                 }
 
         else if(userChoice === 'rock' && computerChoice === 'scissor' ||
                 userChoice === 'paper' && computerChoice === 'rock' ||
                 userChoice === 'scissor' && computerChoice === 'paper'){
                     alert(`You win! ${userChoice} beats ${computerChoice}`)
+                    me_score++
+                    myScore.textContent = me_score;
                 }
     }
 
     function game(){
-        let score = 0
-
-        for(let i = 0; i <= 4; i++){
-            playRound(playerPlay(),computerPlay());
-
+        for(let i = 0; i < 5; i++){
+            playRound(playerPlay(), computerPlay());
+        }
+        if(me_score > pc_score){
+            winner.textContent = `You Won ${me_score} - ${pc_score}!`;
+        }
+        else if(pc_score > me_score){
+            winner.textContent = `Computer Won ${pc_score} - ${me_score}!`;
+        }
+        else if(pc_score === me_score){
+            winner.textContent = 'Its a Tie!';
         }
     }
 
-    game()
+    game();
     
 </script>
