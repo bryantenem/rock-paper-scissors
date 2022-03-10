@@ -1,0 +1,15 @@
+body {
+    background: greenyellow;
+    margin: 10px;
+    text-align: center;
+}
+
+p {
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
