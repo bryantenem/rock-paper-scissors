@@ -53,16 +53,16 @@
         else if(userChoice === 'rock' && computerChoice === 'paper' ||
                 userChoice === 'paper' && computerChoice === 'scissor' ||
                 userChoice === 'scissor' && computerChoice === 'rock'){
-                    alert(`Computer Wins! ${computerChoice} beats ${userChoice}`)
-                    pc_score++
+                    alert(`Computer Wins! ${computerChoice} beats ${userChoice}`);
+                    pc_score++;
                     pcScore.textContent = pc_score;
                 }
 
         else if(userChoice === 'rock' && computerChoice === 'scissor' ||
                 userChoice === 'paper' && computerChoice === 'rock' ||
                 userChoice === 'scissor' && computerChoice === 'paper'){
-                    alert(`You win! ${userChoice} beats ${computerChoice}`)
-                    me_score++
+                    alert(`You win! ${userChoice} beats ${computerChoice}`);
+                    me_score++;
                     myScore.textContent = me_score;
                 }
     }
